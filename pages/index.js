@@ -1,4 +1,4 @@
-import SalesTrend from "@/components/SalesTrend";
+import BarChart from "@/components/BarChart";
 import SideNavbar from "@/components/SideNavbar";
 import Head from "next/head";
 export default function Home()
@@ -8,12 +8,12 @@ export default function Home()
       <Head>
         <title>Admin | Dashboard</title>
       </Head>
-      <main className="font-Poppins grid grid-cols-2">
-        <div className="grid-2">
+      <main className="font-Poppins grid grid-cols-12">
+        <div className="col-start-1 col-end-2">
           <SideNavbar />
         </div>
-        <div>
-          <SalesTrend />
+        <div className="col-start-2 col-end-8">
+          <BarChart />
         </div>
       </main>
     </div>
