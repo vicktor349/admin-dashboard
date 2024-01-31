@@ -1,8 +1,14 @@
+import Head from "next/head";
 export default function Home()
 {
   return (
-    <main className="font-Poppins">
-      <h1>Hello world</h1>
-    </main>
+    <div>
+      <Head>
+        <title>Admin | Home</title>
+      </Head>
+      <main className="font-Poppins">
+
+      </main>
+    </div>
   );
 }
