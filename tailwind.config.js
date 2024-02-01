@@ -9,6 +9,12 @@ module.exports = {
     extend: {
       fontFamily: {
         Poppins: 'Poppins'
+      },
+      backgroundColor: {
+        hoverColor: "#ecebe7"
+      },
+      screens: {
+        'ssm': '360px'
       }
     },
   },
