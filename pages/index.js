@@ -4,7 +4,7 @@ export default function Home()
   return (
     <div>
       <Head>
-        <title>Admin | Home</title>
+        <title>Admin | Dashboard</title>
       </Head>
       <main className="font-Poppins">
 
