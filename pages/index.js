@@ -1,3 +1,4 @@
+import SideNavbar from "@/components/SideNavbar";
 import Head from "next/head";
 export default function Home()
 {
@@ -6,8 +7,13 @@ export default function Home()
       <Head>
         <title>Admin | Dashboard</title>
       </Head>
-      <main className="font-Poppins">
+      <main className="font-Poppins grid grid-cols-2">
+        <div className="grid-2">
+          <SideNavbar />
+        </div>
+        <div>
 
+        </div>
       </main>
     </div>
   );
