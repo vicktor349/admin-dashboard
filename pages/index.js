@@ -1,3 +1,4 @@
+import SalesTrend from "@/components/SalesTrend";
 import SideNavbar from "@/components/SideNavbar";
 import Head from "next/head";
 export default function Home()
@@ -12,7 +13,7 @@ export default function Home()
           <SideNavbar />
         </div>
         <div>
-
+          <SalesTrend />
         </div>
       </main>
     </div>
