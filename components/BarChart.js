@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 const { Chart } = require('chart.js/auto');
 
-// Define the BarChart function
 const BarChart = () =>
 {
-    // Use useEffect hook to run code after the component mounts
     useEffect(() =>
     {
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -14,7 +12,6 @@ const BarChart = () =>
             existingChart.destroy();
         }
 
-        // Create a new Chart instance
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -53,7 +50,6 @@ const BarChart = () =>
         });
     }, []);
 
-    // Return the JSX for the component
     return (
         <>
             <div className="w-full flex">
@@ -65,5 +61,4 @@ const BarChart = () =>
     );
 }
 
-// Export the BarChart function as the default export
 module.exports = BarChart;
