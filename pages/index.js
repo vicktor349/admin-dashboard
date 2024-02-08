@@ -1,5 +1,6 @@
 import BarChart from "@/components/BarChart";
 import SideNavbar from "@/components/SideNavbar";
+import TrendSales from "@/components/TrendSales";
 import Head from "next/head";
 export default function Home()
 {

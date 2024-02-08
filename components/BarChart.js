@@ -1,59 +1,125 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 const { Chart } = require('chart.js/auto');
 
 const BarChart = () =>
 {
+    const [chartData, setChartData] = useState([700, 400, 150, 350, 800, 500, 470, 320, 280, 650]);
+    const [currentDay, setCurrentDay] = useState(getCurrentDay());
+
     useEffect(() =>
     {
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var existingChart = Chart.getChart(ctx);
+        const updateData = () =>
+        {
+            const newDay = getCurrentDay();
+            if (newDay !== currentDay)
+            {
+                setCurrentDay(newDay);
+                const newData = [...chartData];
+                const newSales = Math.floor(Math.random() * 1000);
+                newData.push(newSales);
+                setChartData(newData.slice(-10));
+            }
+        };
+
+        const chartContext = document.getElementById('myChart').getContext('2d');
+        const existingChart = Chart.getChart(chartContext);
         if (existingChart)
         {
             existingChart.destroy();
         }
 
-        var myChart = new Chart(ctx, {
+        const newChart = new Chart(chartContext, {
             type: 'bar',
             data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                labels: Array.from({ length: 10 }, (_, i) =>
+                {
+                    const date = new Date();
+                    date.setDate(date.getDate() - (9 - i));
+                    return date.toLocaleDateString('en-US', { weekday: 'short' });
+                }),
                 datasets: [
                     {
-                        data: [66, 144, 146, 116, 107, 131, 43],
-                        label: "Applied",
-                        borderColor: "rgb(109, 253, 181)",
-                        backgroundColor: "rgb(109, 253, 181,0.5)",
-                        borderWidth: 2
+                        data: chartData,
+                        borderColor: "#34caa5",
+                        backgroundColor: "#34caa5",
+                        borderRadius: 30,
+                        barPercentage: 0.5,
                     },
-                    {
-                        data: [40, 100, 44, 70, 63, 30, 10],
-                        label: "Accepted",
-                        borderColor: "rgb(75, 192, 192)",
-                        backgroundColor: "rgb(75, 192, 192,0.5)",
-                        borderWidth: 2
-                    },
-                    {
-                        data: [20, 24, 50, 34, 33, 23, 12],
-                        label: "Pending",
-                        borderColor: "rgb(255, 205, 86)",
-                        backgroundColor: "rgb(255, 205, 86,0.5)",
-                        borderWidth: 2
-                    },
-                    {
-                        data: [6, 20, 52, 12, 11, 78, 21],
-                        label: "Rejected",
-                        borderColor: "rgb(255, 99, 132)",
-                        backgroundColor: "rgb(255, 99, 132,0.5)",
-                        borderWidth: 2
-                    }
                 ]
             },
+            options: {
+                layout: {
+                    padding: {
+                        top: 20,
+                        bottom: 20,
+                        left: 10,
+                        right: 10
+                    },
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    title: {
+                        display: true,
+                        text: "Sales Trend",
+                        align: "start",
+                        padding: {
+                            top: 20,
+                            bottom: 20
+                        },
+                        font: {
+                            size: 19
+                        }
+                    },
+                },
+                scales: {
+                    x: {
+                        type: "category",
+                        grid: {
+                            display: false
+                        },
+                    },
+                    y: {
+                        type: "linear",
+                        suggestedMax: 1200,
+                        suggestedMin: 0,
+                        grid: {
+                            drawTicks: false
+                        },
+                        ticks: {
+                            stepSize: 300,
+                            callback: function (value)
+                            {
+                                return '$' + value;
+                            }
+                        },
+                    }
+                }
+            }
         });
-    }, []);
+
+        // Cleanup function
+        return () =>
+        {
+            newChart.destroy();
+        };
+    }, [chartData, currentDay]);
+
+    // Function to get the current day in yyyy-mm-dd format
+    function getCurrentDay()
+    {
+        const today = new Date();
+        return today.toISOString().split('T')[0];
+    }
 
     return (
         <>
-            <div className="w-full flex">
-                <div className='border border-gray-400 pt-0 rounded-xl  w-full h-fit my-auto shadow-xl'>
+            <div>
+                <div className='border border-gray-400 pt-0 rounded-xl shadow-xl  h-[500px]'>
                     <canvas id='myChart'></canvas>
                 </div>
             </div>
@@ -61,4 +127,4 @@ const BarChart = () =>
     );
 }
 
-module.exports = BarChart;
+export default BarChart;
