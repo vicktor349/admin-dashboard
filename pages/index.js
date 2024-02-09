@@ -1,4 +1,4 @@
-import BarChart from "@/components/BarChart";
+import TrendSales from "@/components/TrendSales";
 import SideNavbar from "@/components/SideNavbar";
 import Head from "next/head";
 export default function Home()
@@ -13,7 +13,7 @@ export default function Home()
           <SideNavbar />
         </div>
         <div className="col-start-2 col-end-8 mt-5">
-          <BarChart />
+          <TrendSales />
         </div>
       </main>
     </div>

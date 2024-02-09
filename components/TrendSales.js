@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Chart } from 'chart.js/auto';
 
-const BarChart = () =>
+const TrendSales = () =>
 {
     const [chartData, setChartData] = useState([700, 400, 150, 350, 800, 500, 470, 320, 280, 650]);
     const [currentDay, setCurrentDay] = useState(getCurrentDay());
@@ -63,19 +63,7 @@ const BarChart = () =>
                     tooltip: {
                         enabled: false
                     },
-                    title: {
-                        display: true,
-                        text: "Sales Trend",
-                        align: "start",
-                        padding: {
-                            top: 20,
-                            bottom: 30,
-                        },
-                        font: {
-                            size: 19,
-                        },
-                        color: "black"
-                    },
+
                 },
                 scales: {
                     x: {
@@ -113,10 +101,23 @@ const BarChart = () =>
     }
 
     return (
-        <div className='border border-borderColor pt-0 rounded-xl shadow-xl h-[55vh] w-[55vw]'>
-            <canvas id='myChart'></canvas>
+        <div className="w-[50rem]">
+            <div className='border border-borderColor pt-0 rounded-xl shadow-xl w-full'>
+                <div className='flex mx-6 items-center'>
+                    <h1 className="text-xl py-6">Sales Trend</h1>
+                    <div className="ml-auto">
+                        <span className='mr-4'>Sort by:</span>
+                        <select name="select" id="" className='border border-1 rounded-3xl hover:cursor-pointer p-2 bg-transparent'>
+                            <option value="daily">Daily</option>
+                            <option value="daily">Weekly</option>
+                            <option value="daily">Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <canvas id='myChart'></canvas>
+            </div>
         </div>
     );
 }
 
-export default BarChart;
+export default TrendSales;
