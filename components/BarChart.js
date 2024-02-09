@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-const { Chart } = require('chart.js/auto');
+import { Chart } from 'chart.js/auto';
 
 const BarChart = () =>
 {
@@ -35,7 +35,7 @@ const BarChart = () =>
                 {
                     const date = new Date();
                     date.setDate(date.getDate() - (9 - i));
-                    return date.toLocaleDateString('en-US', { weekday: 'short' });
+                    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
                 }),
                 datasets: [
                     {
@@ -69,11 +69,12 @@ const BarChart = () =>
                         align: "start",
                         padding: {
                             top: 20,
-                            bottom: 20
+                            bottom: 30,
                         },
                         font: {
-                            size: 19
-                        }
+                            size: 19,
+                        },
+                        color: "black"
                     },
                 },
                 scales: {
@@ -87,9 +88,6 @@ const BarChart = () =>
                         type: "linear",
                         suggestedMax: 1200,
                         suggestedMin: 0,
-                        grid: {
-                            drawTicks: false
-                        },
                         ticks: {
                             stepSize: 300,
                             callback: function (value)
@@ -102,14 +100,12 @@ const BarChart = () =>
             }
         });
 
-        // Cleanup function
         return () =>
         {
             newChart.destroy();
         };
     }, [chartData, currentDay]);
 
-    // Function to get the current day in yyyy-mm-dd format
     function getCurrentDay()
     {
         const today = new Date();
@@ -117,13 +113,9 @@ const BarChart = () =>
     }
 
     return (
-        <>
-            <div>
-                <div className='border border-gray-400 pt-0 rounded-xl shadow-xl  h-[500px]'>
-                    <canvas id='myChart'></canvas>
-                </div>
-            </div>
-        </>
+        <div className='border border-borderColor pt-0 rounded-xl shadow-xl h-[55vh] w-[55vw]'>
+            <canvas id='myChart'></canvas>
+        </div>
     );
 }
 

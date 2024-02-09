@@ -15,6 +15,9 @@ module.exports = {
       },
       screens: {
         'ssm': '360px'
+      },
+      borderColor: {
+        'borderColor': '#e5e7eb'
       }
     },
   },
