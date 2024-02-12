@@ -102,7 +102,7 @@ const TrendSales = () =>
 
     return (
         <div className="w-[53.5rem]">
-            <div className='border border-borderColor pt-0 rounded-xl shadow-xl w-full h-[33.7rem]'>
+            <div className='border border-borderColor pt-0 rounded-xl shadow-xl h-[33.7rem]'>
                 <div className='flex mx-6 items-center'>
                     <h1 className="text-xl py-6">Sales Trend</h1>
                     <div className="ml-auto">

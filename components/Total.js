@@ -5,7 +5,7 @@ import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 const Total = ({ src, alt, data, stroke, fill, total, totalNumber, profits, backgroundColor, textColor }) =>
 {
     return (
-        <div className='rounded-xl border shadow-lg w-72 h-64 px-4 pt-4'>
+        <div className='rounded-xl border shadow-lg px-4 pt-4 xl:w-64 xl:h-64 2xl:w-72 2xl:h-64'>
             <div className='flex items-center'>
                 <Image src={src} alt={alt} width={50} height={50} />
                 <ResponsiveContainer width="50%" height={50} className="ml-auto">
