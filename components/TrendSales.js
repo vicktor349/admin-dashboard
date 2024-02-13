@@ -63,7 +63,6 @@ const TrendSales = () =>
                     tooltip: {
                         enabled: false
                     },
-
                 },
                 scales: {
                     x: {
@@ -101,19 +100,19 @@ const TrendSales = () =>
     }
 
     return (
-        <div className="w-[53.5rem]">
-            <div className='border border-borderColor pt-0 rounded-xl shadow-xl h-[33.7rem]'>
-                <div className='flex mx-6 items-center'>
-                    <h1 className="text-xl py-6">Sales Trend</h1>
-                    <div className="ml-auto">
-                        <span className='mr-4'>Sort by:</span>
-                        <select name="select" id="" className='border border-1 rounded-3xl hover:cursor-pointer p-2 bg-transparent'>
-                            <option value="daily">Daily</option>
-                            <option value="daily">Weekly</option>
-                            <option value="daily">Monthly</option>
-                        </select>
-                    </div>
+        <div className='border border-borderColor pt-0 rounded-xl shadow-xl lg:w-[63rem] 2xl:'>
+            <div className='flex mx-6 items-center'>
+                <h1 className="text-xl py-6">Sales Trend</h1>
+                <div className="ml-auto">
+                    <span className='mr-4'>Sort by:</span>
+                    <select name="select" id="" className='border border-1 rounded-3xl hover:cursor-pointer p-2 bg-transparent'>
+                        <option value="daily">Daily</option>
+                        <option value="daily">Weekly</option>
+                        <option value="daily">Monthly</option>
+                    </select>
                 </div>
+            </div>
+            <div className="lg:w-[63.3rem] 2xl:w-[53.3rem] h-full">
                 <canvas id='myChart'></canvas>
             </div>
         </div>

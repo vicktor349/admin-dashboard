@@ -12,14 +12,14 @@ export default function Home()
       <Head>
         <title>Admin | Dashboard</title>
       </Head>
-      <main className="font-Poppins flex">
+      <main className="font-Poppins xl:flex">
         <div>
           <SideNavbar />
         </div>
         <div className="mt-5 ml-24">
           <TrendSales />
         </div>
-        <div className="mt-5 grid grid-cols-2 xl:ml-4 2xl:ml-6 gap-6">
+        <div className="mt-5 grid grid-cols-2 lg:ml-24 xl:ml-4 2xl:ml-6 gap-6">
           <Total src={"images/totalorder.svg"}
             alt="refund chart" data={TotalOrderData}
             stroke="#82ca9d" fill="#82ca9d"
