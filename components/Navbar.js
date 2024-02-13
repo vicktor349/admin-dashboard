@@ -31,7 +31,7 @@ const Navbar = () =>
                 <div>
                     <Image src={"/images/logo.svg"} alt='logo' width={50} height={50} />
                 </div>
-                <Link href="/" className='font-semibold text-xl ml-12 ssm:hidden lg:inline-block'>Dashboard</Link>
+                <Link href="/" className='font-semibold text-xl ml-5 ssm:hidden lg:inline-block'>Dashboard</Link>
                 <div className='ml-auto'>
                     <SearchBar />
                 </div>
